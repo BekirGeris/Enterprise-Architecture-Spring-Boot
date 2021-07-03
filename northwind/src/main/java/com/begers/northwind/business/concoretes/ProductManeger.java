@@ -15,6 +15,7 @@ import com.begers.northwind.core.utilities.result.SuccessDataResult;
 import com.begers.northwind.core.utilities.result.SuccessResult;
 import com.begers.northwind.dataAccess.abstracts.ProductDao;
 import com.begers.northwind.entities.concoretes.Product;
+import com.begers.northwind.entities.dtos.ProductWithCategoryDto;
 
 @Service
 public class ProductManeger implements ProductService{
@@ -110,6 +111,11 @@ public class ProductManeger implements ProductService{
 	public DataResult<List<Product>> getAllSorted() {
 		Sort sort = Sort.by(Sort.Direction.DESC, "productName");
 		return new SuccessDataResult<List<Product>>(this.productDao.findAll(sort), "Siralandi");
+	}
+
+	@Override
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+		return new SuccessDataResult<List<ProductWithCategoryDto>>(this.productDao.getProductWithCategoryDetails(), "Data Listelendi");
 	}
 
 }

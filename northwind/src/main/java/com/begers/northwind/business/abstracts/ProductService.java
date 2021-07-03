@@ -5,6 +5,7 @@ import java.util.List;
 import com.begers.northwind.core.utilities.result.DataResult;
 import com.begers.northwind.core.utilities.result.Result;
 import com.begers.northwind.entities.concoretes.Product;
+import com.begers.northwind.entities.dtos.ProductWithCategoryDto;
 
 public interface ProductService {
 	
@@ -26,4 +27,6 @@ public interface ProductService {
 	DataResult<List<Product>> getByProductNameStartsWith(String productName);
 	
 	DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+	
+	DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 }
